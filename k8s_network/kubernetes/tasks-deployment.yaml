@@ -1,21 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: users-deployment
+  name: tasks-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: users
+      app: tasks
   template:
     metadata:
       labels:
-        app: users
+        app: tasks
     spec:
       containers:
-        - name: users
-          image: minuet1215/kub-demo-users:latest
+        - name: tasks
+          image: minuet1215/kub-demo-tasks:latest
           env:
+            - name: TASKS_FOLDER
+              value: tasks
             - name: AUTH_ADDRESS
-              # value: "10.97.177.118"
               value: "auth-service.default"

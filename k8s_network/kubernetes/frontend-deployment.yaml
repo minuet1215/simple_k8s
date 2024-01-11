@@ -1,21 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: users-deployment
+  name: frontend-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: users
+      app: frontend
   template:
     metadata:
       labels:
-        app: users
+        app: frontend
     spec:
       containers:
-        - name: users
-          image: minuet1215/kub-demo-users:latest
+        - name: frontend
+          image: minuet1215/kub-demo-frontend:latest
           env:
             - name: AUTH_ADDRESS
-              # value: "10.97.177.118"
               value: "auth-service.default"
