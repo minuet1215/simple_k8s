@@ -17,4 +17,5 @@ spec:
           image: minuet1215/kub-demo-users:latest
           env:
             - name: AUTH_ADDRESS
-              value: "10.97.177.118"
+              # value: "10.97.177.118"
+              value: "auth-service.default"
